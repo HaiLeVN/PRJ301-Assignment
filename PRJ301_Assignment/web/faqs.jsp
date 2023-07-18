@@ -16,10 +16,10 @@
         <h1>FAQ management</h1>
         <c:set var="itemlist" value="${requestScope.itemList}"/>
         <c:if test="${not empty itemlist}">
+            <p>Choose item: </p>
             <form action="MainController" method="post">
                 <input type="hidden" value="loadFAQItem" name="action"/>
                 <select name="value">
-                    <option value="" selected disabled hidden>Choose item</option>
                     <c:forEach var="itemname" items="${requestScope.itemList}">
                         <option value="${itemname.getItemId()}">${itemname.getItemName()}</option>
                     </c:forEach>
@@ -27,7 +27,7 @@
                 <input type="submit" value="Choose"/>
             </form>
         </c:if>
-        
+
         <c:if test="${empty itemlist}">
             <h2>List is empty, please create some items</h2>
             <a href="MainController?action=manageItem">Click here to go to Item Management</a>
@@ -39,8 +39,12 @@
                 <p>FAQ ID: <input type="number" value="${faq.getId()}" readonly/></p>
                 <p>Customer Name: <input type="text" value="${faq.getCustName()}" readonly/></p>
                 <p>Content: <input type="text" value="${faq.getCustContent()}" readonly/></p>
-            </c:forEach>
+                <hr/>
+                </c:forEach>
+            </c:if>
+            <c:if test="${empty faqlist}">
+            <h4>None of FAQs of this item</h4>
         </c:if>
-         <a href="MainController">Back</a>
+        <a href="MainController">Back</a>
     </body>
 </html>

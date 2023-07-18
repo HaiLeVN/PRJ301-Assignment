@@ -44,22 +44,24 @@ public class DataValidator {
 
     public static boolean checkCategory(int cateid) {
         boolean flag = false;
-        try {
-            ArrayList<Category> cateList = CategoryDAO.getAllCategory();
-            if (cateList != null && !cateList.isEmpty()) {
-                for (Category c : cateList) {
-                    if (c.getCateId() == cateid) {
-                        flag = true;
-                        break;
-                    } else {
-                        flag = false;
+        if (cateid > 0) {
+            try {
+                ArrayList<Category> cateList = CategoryDAO.getAllCategory();
+                if (cateList != null && !cateList.isEmpty()) {
+                    for (Category c : cateList) {
+                        if (c.getCateId() == cateid) {
+                            flag = true;
+                            break;
+                        } else {
+                            flag = false;
+                        }
                     }
+                } else {
+                    flag = false;
                 }
-            } else {
-                flag = false;
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
         return flag;
     }

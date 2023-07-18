@@ -5,9 +5,11 @@
  */
 package controller;
 
+import dbaccess.FAQsDAO;
 import dbaccess.ItemDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -33,17 +35,27 @@ public class DeleteItemServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             String itemid = request.getParameter("txtitemid");
-            
-            int rs = ItemDAO.deleteItem(Integer.parseInt(itemid));
-            if (rs > 0) {
-                String msg = "Successful removed";
+            String msg;
+            //kiem tra item hien co FAQ hay ko, neu co khong duoc thuc hien hanh dong xoa
+            ArrayList<Integer> faqID = FAQsDAO.getFAQsIdfromItemId(Integer.parseInt(itemid));
+
+            if (faqID != null && faqID.size() > 0) {
+                msg = "Failed to remove because this item currently has FAQ";
                 request.setAttribute("msg", msg);
                 request.getRequestDispatcher("MainController?action=manageItem").forward(request, response);
             } else {
-                String msg = "Failed to remove";
-                request.setAttribute("msg", msg);
-                request.getRequestDispatcher("MainController?action=manageItem").forward(request, response);
+                int rs = ItemDAO.deleteItem(Integer.parseInt(itemid));
+                if (rs > 0) {
+                    msg = "Successful removed";
+                    request.setAttribute("msg", msg);
+                    request.getRequestDispatcher("MainController?action=manageItem").forward(request, response);
+                } else {
+                    msg = "Failed to remove";
+                    request.setAttribute("msg", msg);
+                    request.getRequestDispatcher("MainController?action=manageItem").forward(request, response);
+                }
             }
+
         } catch (Exception e) {
             e.printStackTrace();
         }

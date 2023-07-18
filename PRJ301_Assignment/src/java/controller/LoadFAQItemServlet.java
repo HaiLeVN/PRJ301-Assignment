@@ -37,10 +37,14 @@ public class LoadFAQItemServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             
+            ArrayList<FAQ> faqList = new ArrayList();
+            ArrayList<Item> itemList = new ArrayList();
             String valueID = request.getParameter("value");
-            // lay faq
-            ArrayList<FAQ> faqList = FAQsDAO.getFAQbyItemID(Integer.parseInt(valueID));
-            ArrayList<Item> itemList = ItemDAO.getAllItem();
+            if(valueID != null) {
+                // lay faq
+                faqList = FAQsDAO.getFAQbyItemID(Integer.parseInt(valueID));
+                itemList = ItemDAO.getAllItem();
+            }
 
             request.setAttribute("itemList", itemList);
             request.setAttribute("faqList", faqList);

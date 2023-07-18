@@ -38,25 +38,25 @@ public class CreateItemServlet extends HttpServlet {
             String itemPrice = request.getParameter("txtitemprice");
             String cateid = request.getParameter("txtcateid");
             String msg = "";
-            int rs = 0;
+            int rs;
             // Validate data
             boolean flag = true;
-            if(DataValidator.checkID(Integer.parseInt(itemid.trim()))) {
+            if(DataValidator.checkID(Integer.parseInt(itemid))) {
                 msg += "\nInvalid input ID: must be above zero or not match other ID";
                 flag = false;
             }
             
-            if(!DataValidator.checkNullString(itemName.trim())) {
+            if(!DataValidator.checkNullString(itemName)) {
                 msg += "\nInvalid name: please fill it with name";
                 flag = false;
             }
             
-            if(!DataValidator.checkPrice(Integer.parseInt(itemPrice.trim()))) {
+            if(!DataValidator.checkPrice(Integer.parseInt(itemPrice))) {
                 msg += "\nInvalid price: must be above zero";
                 flag = false;
             }
             
-            if(!DataValidator.checkCategory(Integer.parseInt(cateid.trim()))) {
+            if(!DataValidator.checkCategory(Integer.parseInt(cateid))) {
                 msg += "\nThis category does not exist";
                 flag = false;
             }

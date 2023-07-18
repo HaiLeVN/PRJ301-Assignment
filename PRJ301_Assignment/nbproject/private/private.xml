@@ -3,28 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/lehai/NetBeansProjects/PRJ301_Assignment/web/faqs.jsp</file>
-            <file>file:/C:/Users/lehai/NetBeansProjects/PRJ301_Assignment/web/index.jsp</file>
-            <file>file:/C:/Users/lehai/NetBeansProjects/PRJ301_Assignment/src/java/basicobject/FAQ.java</file>
-            <file>file:/C:/Users/lehai/NetBeansProjects/PRJ301_Assignment/src/java/basicobject/Item.java</file>
-            <file>file:/C:/Users/lehai/NetBeansProjects/PRJ301_Assignment/src/java/filter/ValidFilter.java</file>
             <file>file:/C:/Users/lehai/NetBeansProjects/PRJ301_Assignment/web/item.jsp</file>
-            <file>file:/C:/Users/lehai/NetBeansProjects/PRJ301_Assignment/web/edititem.jsp</file>
-            <file>file:/C:/Users/lehai/NetBeansProjects/PRJ301_Assignment/src/java/controller/LoadFAQItemServlet.java</file>
-            <file>file:/C:/Users/lehai/NetBeansProjects/PRJ301_Assignment/src/java/controller/CreateItemServlet.java</file>
             <file>file:/C:/Users/lehai/NetBeansProjects/PRJ301_Assignment/src/java/dbaccess/FAQsDAO.java</file>
-            <file>file:/C:/Users/lehai/NetBeansProjects/PRJ301_Assignment/src/java/dbaccess/ItemDAO.java</file>
-            <file>file:/C:/Users/lehai/NetBeansProjects/PRJ301_Assignment/src/java/controller/LoadItemServlet.java</file>
-            <file>file:/C:/Users/lehai/NetBeansProjects/PRJ301_Assignment/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Users/lehai/NetBeansProjects/PRJ301_Assignment/src/java/controller/UpdateItemServlet.java</file>
-            <file>file:/C:/Users/lehai/NetBeansProjects/PRJ301_Assignment/src/java/controller/DeleteItemServlet.java</file>
-            <file>file:/C:/Users/lehai/NetBeansProjects/PRJ301_Assignment/src/java/utility/DataValidator.java</file>
-            <file>file:/C:/Users/lehai/NetBeansProjects/PRJ301_Assignment/src/java/controller/LoadFAQServlet.java</file>
-            <file>file:/C:/Users/lehai/NetBeansProjects/PRJ301_Assignment/src/java/controller/MainController.java</file>
-            <file>file:/C:/Users/lehai/NetBeansProjects/PRJ301_Assignment/src/java/basicobject/Category.java</file>
             <file>file:/C:/Users/lehai/NetBeansProjects/PRJ301_Assignment/src/java/dbaccess/CategoryDAO.java</file>
-            <file>file:/C:/Users/lehai/NetBeansProjects/PRJ301_Assignment/src/java/mylib/DBUtils.java</file>
-            <file>file:/C:/Users/lehai/NetBeansProjects/PRJ301_Assignment/src/java/controller/EditItemServlet.java</file>
         </group>
     </open-files>
 </project-private>

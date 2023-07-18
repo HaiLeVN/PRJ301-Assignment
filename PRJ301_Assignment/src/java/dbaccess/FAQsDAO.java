@@ -23,7 +23,7 @@ public class FAQsDAO {
         Connection cn = DBUtils.makeConnection();
         if (cn != null) {
             String sql = "select f.Id,f.CustName,f.CustContent\n"
-                    + "from [dbo].[FAQ] f full join [dbo].[Items] i on f.ItemId = i.ItemId\n"
+                    + "from [dbo].[FAQ] f left join [dbo].[Items] i on f.ItemId = i.ItemId\n"
                     + "where i.ItemId = ?";
             PreparedStatement pst = cn.prepareStatement(sql);
             pst.setInt(1, itemId);
@@ -44,5 +44,27 @@ public class FAQsDAO {
         }
 
         return faqList;
+    }
+    
+    public static ArrayList<Integer> getFAQsIdfromItemId(int itemId) throws Exception {
+        ArrayList<Integer> IDList = new ArrayList<>();
+        Connection cn = DBUtils.makeConnection();
+        if (cn != null) {
+            String sql = "select f.Id\n"
+                    + "from [dbo].[FAQ] f left join [dbo].[Items] i on f.ItemId = i.ItemId\n"
+                    + "where i.ItemId = ?";
+            PreparedStatement pst = cn.prepareStatement(sql);
+            pst.setInt(1, itemId);
+
+            ResultSet rs = pst.executeQuery();
+            if (rs != null) {
+                while (rs.next()) {
+                    int id = rs.getInt("Id");
+                    IDList.add(id);
+                }
+            }
+            cn.close();
+        }
+        return IDList;
     }
 }
